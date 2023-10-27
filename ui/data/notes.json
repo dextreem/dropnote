@@ -1,0 +1,52 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "user": {
+        "id": 1,
+        "name": "dextreem"
+      },
+      "position": {
+        "lat": 49.444,
+        "lng": 7.7692
+      },
+      "text": "Hello there 🙋‍♂️"
+    },
+    {
+      "id": 2,
+      "user": {
+        "id": 1,
+        "name": "dextreem"
+      },
+      "position": {
+        "lat": 49.457,
+        "lng": 7.7702
+      },
+      "text": "Watch out!"
+    },
+    {
+      "id": 3,
+      "user": {
+        "id": 2,
+        "name": "josh"
+      },
+      "position": {
+        "lat": 49.436,
+        "lng": 7.769
+      },
+      "text": "Take this, filthy peasant"
+    },
+    {
+      "id": 4,
+      "user": {
+        "id": 1,
+        "name": "dextreem"
+      },
+      "position": {
+        "lat": 49.445,
+        "lng": 7.7694
+      },
+      "text": "sup?"
+    }
+  ]
+}

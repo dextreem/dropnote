@@ -1,20 +1,16 @@
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, useMapEvents } from "react-leaflet";
 
 import styles from "./Map.module.css";
 import { useEffect, useState } from "react";
-import Button from "./Button";
+// import Button from "./Button";
+import { useGeolocation } from "../contexts/GeolocationContext";
+import MapPopupMarker from "./MapPopupMarker";
 
-const ZOOM_LEVEL = 50;
+const ZOOM_LEVEL = 16;
 
-function Map({ geolocationPosition, getPosition, isLoadingPosition }) {
+function Map() {
   const [mapPosition, setMapPosition] = useState([52.5, 13.4]);
+  const { geolocation: geolocationPosition, notes } = useGeolocation();
 
   useEffect(
     function () {
@@ -26,9 +22,9 @@ function Map({ geolocationPosition, getPosition, isLoadingPosition }) {
 
   return (
     <div className={styles.mapContainer}>
-      <Button type="position" onClick={getPosition}>
+      {/* <Button type="position" onClick={getPosition}>
         {isLoadingPosition ? "Loading..." : "Recenter"}
-      </Button>
+      </Button> */}
 
       <MapContainer
         center={mapPosition}
@@ -41,12 +37,17 @@ function Map({ geolocationPosition, getPosition, isLoadingPosition }) {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {geolocationPosition && (
-          <Marker position={geolocationPosition}>
-            <Popup>
-              <span></span> <span>You are here.</span>
-            </Popup>
-          </Marker>
+          <MapPopupMarker type="user" position={geolocationPosition}>
+            <span>You are here</span>
+          </MapPopupMarker>
         )}
+
+        {notes &&
+          notes.map((note) => (
+            <MapPopupMarker type="note" key={note.id} position={note.position}>
+              <span>{note.text}</span>
+            </MapPopupMarker>
+          ))}
 
         <ChangeCenter position={mapPosition} />
         <DetectClick />
