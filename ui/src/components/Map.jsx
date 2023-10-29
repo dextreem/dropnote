@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useGeolocation } from "../contexts/GeolocationContext";
 import MapPopupMarker from "./MapPopupMarker";
 
-const ZOOM_LEVEL = 16;
+const ZOOM_LEVEL = 20;
 
 function Map() {
   const [mapPosition, setMapPosition] = useState([52.5, 13.4]);
