@@ -10,7 +10,8 @@
         "lat": 49.444,
         "lng": 7.7692
       },
-      "text": "Hello there 🙋‍♂️"
+      "text": "Hello there 🙋‍♂️",
+      "creation": { "day": "01.01.2023", "time": "10:00:00" }
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
         "lat": 49.457,
         "lng": 7.7702
       },
-      "text": "Watch out!"
+      "text": "Watch out!",
+      "creation": { "day": "01.01.2023", "time": "11:00:00" }
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
         "lat": 49.436,
         "lng": 7.769
       },
-      "text": "Take this, filthy peasant"
+      "text": "Take this, filthy peasant",
+      "creation": { "day": "01.01.2023", "time": "12:00:00" }
     },
     {
       "id": 4,
@@ -46,7 +49,8 @@
         "lat": 49.445,
         "lng": 7.7694
       },
-      "text": "sup?"
+      "text": "sup?",
+      "creation": { "day": "01.01.2023", "time": "13:00:00" }
     }
   ]
 }

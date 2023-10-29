@@ -8,7 +8,7 @@ const initialState = {
   geolocation: { lat: 52.5, lng: 13.4 },
   isLoading: false,
   error: "",
-  notes: [],
+  notes: null,
 };
 
 function reducer(state, action) {
@@ -89,8 +89,6 @@ function GeolocationProvider({ children }) {
   async function deleteNote() {
     throw new Error("Not yet implemented");
   }
-
-  async function retrieveGeolocation() {}
 
   return (
     <GeolocationContext.Provider
