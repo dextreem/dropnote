@@ -8,6 +8,7 @@ import { GeolocationProvider } from "./contexts/GeolocationContext";
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const SelectView = lazy(() => import("./pages/SelectView"));
 const MapView = lazy(() => import("./pages/MapView"));
+const ListView = lazy(() => import("./pages/ListView"));
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
         <Suspense fallback={<SpinnerFullPage />} />
         <Routes>
           {/* <Route index element={<Homepage />} /> */}
-          <Route index element={<MapView />} />
+          <Route index element={<ListView />} />
           <Route path="app" element={<SelectView />} />
           <Route path="map" element={<MapView />} />
-          <Route path="list" element={null} />
+          <Route path="list" element={<ListView />} />
           <Route path="new" element={null} />
           <Route path="login" element={null} />
           <Route path="user" element={null} />
