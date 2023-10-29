@@ -1,10 +1,10 @@
 import { MapContainer, TileLayer, useMap, useMapEvents } from "react-leaflet";
+import { useEffect, useState } from "react";
 
 import styles from "./Map.module.css";
-import { useEffect, useState } from "react";
-// import Button from "./Button";
-import { useGeolocation } from "../contexts/GeolocationContext";
 import MapPopupMarker from "./MapPopupMarker";
+
+import { useGeolocation } from "../contexts/GeolocationContext";
 
 const ZOOM_LEVEL = 20;
 
@@ -22,10 +22,6 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
-      {/* <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "Recenter"}
-      </Button> */}
-
       <MapContainer
         center={mapPosition}
         zoom={ZOOM_LEVEL}
