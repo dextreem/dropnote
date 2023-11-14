@@ -1,3 +1,6 @@
+public/*.png
+public/*.jpg
+
 # Logs
 logs
 *.log
