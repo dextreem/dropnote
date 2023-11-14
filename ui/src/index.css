@@ -1,8 +1,3 @@
-/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
-@import "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css";
-@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
-
-/* These CSS variables are global, so they are available in all CSS modules */
 :root {
   --color-brand--1: #ffb545;
   --color-brand--2: #58c400;
@@ -13,7 +8,7 @@
   --color-light--1: #aaa;
   --color-light--2: #ececec;
   --color-light--3: #d6dee0;
-}
+/* }
 
 * {
   margin: 0;
@@ -66,4 +61,4 @@ input:focus {
   font-weight: 600;
   padding: 1rem 3rem;
   border-radius: 5px;
-}
+} */
