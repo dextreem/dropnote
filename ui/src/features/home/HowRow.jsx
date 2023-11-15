@@ -25,7 +25,7 @@ const Number = styled.p`
   ${(props) => numberPositions[props.variant]}
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   color: var(--color-brand-600);
   text-transform: uppercase;
   font-weight: 700;

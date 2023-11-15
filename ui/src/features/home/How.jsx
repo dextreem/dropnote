@@ -39,7 +39,7 @@ const H2 = styled.h2`
 
 const HowSection = styled.section`
   background-color: var(--color-brand-50);
-  margin-bottom: 9.6rem;
+  /* margin-bottom: 9.6rem; */
   padding: 9.6rem 4.8rem;
 `;
 
