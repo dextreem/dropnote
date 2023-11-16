@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import How from "./How";
 import Plans from "./Plans";
+import SignUp from "./SignUp";
 
 function Home() {
   return (
@@ -8,7 +9,7 @@ function Home() {
       <Hero />
       <How />
       <Plans />
-      <section>Sign up</section>
+      <SignUp />
     </main>
   );
 }

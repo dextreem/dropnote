@@ -3,6 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 import Header from "./components/Header";
 import Home from "./features/home/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <GlobalStyles />
       <Header />
       <Home />
-      <footer>Footer</footer>
+      <Footer>Footer</Footer>
     </DarkModeProvider>
   );
 }

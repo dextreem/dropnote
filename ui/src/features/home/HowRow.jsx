@@ -11,7 +11,7 @@ const Div = styled.div`
 
 const numberPositions = {
   left: css`
-    grid-area: 1/ 1 / 3 / 2;
+    grid-area: 1 / 1 / 3 / 2;
   `,
   right: css`
     grid-area: 1 / 2 / 3 / 3;
