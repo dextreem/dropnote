@@ -11,7 +11,7 @@ const StyledNotesListView = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 1.6rem;
-  max-height: 75vh;
+  max-height: 78vh;
   overflow-y: auto;
 `;
 
