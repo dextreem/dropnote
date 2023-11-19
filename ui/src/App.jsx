@@ -1,17 +1,25 @@
-import { DarkModeProvider } from "./context/DarkModeContext";
-import GlobalStyles from "./styles/GlobalStyles";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import Header from "./components/Header";
+import GlobalStyles from "./styles/GlobalStyles";
 import Home from "./features/home/Home";
-import Footer from "./components/Footer";
+
+import { DarkModeProvider } from "./context/DarkModeContext";
+import AppLayout from "./ui/AppLayout";
+import Notes from "./features/notes/Notes";
 
 function App() {
   return (
     <DarkModeProvider>
       <GlobalStyles />
-      <Header />
-      <Home />
-      <Footer>Footer</Footer>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="home" element={<Home />} />
+            <Route path="notes" element={<Notes />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </DarkModeProvider>
   );
 }
