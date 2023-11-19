@@ -22,6 +22,10 @@ Bold: 700
   --color-brand-fixed-medium: #087f5b;
   --color-background-grey-opaque-fixed-light: rgb(229, 231, 235, 0.8);
 
+  --border-radius-tiny: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 9px;
   
   &, &.light-mode{
     --color-brand-50: #e6f2ef;
@@ -118,12 +122,6 @@ Bold: 700
     --image-opacity: 90%;
     
   }
-  
-  --border-radius-tiny: 3px;
-  --border-radius-sm: 5px;
-  --border-radius-md: 7px;
-  --border-radius-lg: 9px;
-
 }
 
 *,
