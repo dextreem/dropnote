@@ -24,7 +24,7 @@ function NotesListView() {
       <div>
         <Modal>
           <Modal.Open opens="test">
-            <Button variation="danger">Delete booking</Button>
+            <Button variation="danger">DELETE EVERYTHING</Button>
           </Modal.Open>
           <Modal.Window name="test">
             <div>asd</div>
