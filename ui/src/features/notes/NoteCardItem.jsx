@@ -12,6 +12,8 @@ const StyledNoteCardItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  cursor: pointer;
 `;
 
 const Title = styled.div`
@@ -34,10 +36,10 @@ const User = styled.span`
   color: var(--color-grey-400);
 `;
 
-const Text = styled.p`
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-`;
+// const Text = styled.p`
+//   font-size: 1.8rem;
+//   margin-bottom: 2rem;
+// `;
 
 const Footer = styled.footer`
   font-size: 1.4rem;
@@ -67,7 +69,7 @@ function NoteCardItem({ item }) {
           {user.name} ({user.id})
         </User>
       </Title>
-      <Text>{text}</Text>
+      {/* <Text>{text}</Text> */}
       <Footer>
         <Like>
           <HiHandThumbUp />

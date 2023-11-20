@@ -4,7 +4,7 @@ import NotesMap from "./NotesMap";
 
 const StyledNotes = styled.main`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   justify-content: center;
   margin: 0 auto;

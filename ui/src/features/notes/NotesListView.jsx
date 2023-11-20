@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import { notes } from "../../../data/notes.json";
 import NoteCardItem from "./NoteCardItem";
+import Modal from "../../components/Modal";
+import Button from "../../components/Button";
 
 const StyledNotesListView = styled.div`
   padding: 4rem;
@@ -18,6 +20,17 @@ const StyledNotesListView = styled.div`
 function NotesListView() {
   return (
     <StyledNotesListView>
+      {/* TODO: Make some use of this modal */}
+      <div>
+        <Modal>
+          <Modal.Open opens="test">
+            <Button variation="danger">Delete booking</Button>
+          </Modal.Open>
+          <Modal.Window name="test">
+            <div>asd</div>
+          </Modal.Window>
+        </Modal>
+      </div>
       {notes.map((n) => (
         <NoteCardItem key={n.id} item={n} />
       ))}
