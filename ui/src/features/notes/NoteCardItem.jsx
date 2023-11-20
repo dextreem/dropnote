@@ -6,7 +6,7 @@ const StyledNoteCardItem = styled.div`
   /* border: 2px solid var(--color-grey-100); */
   box-shadow: 0 2px 4px var(--color-grey-100);
   border-radius: var(--border-radius-lg);
-  background-color: var(--color-brand-50);
+  background-color: var(--color-grey-200);
   width: 100%;
 
   display: flex;
