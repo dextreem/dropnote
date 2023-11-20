@@ -1,12 +1,5 @@
 import styled from "styled-components";
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import { useDarkMode } from "../../context/DarkModeContext";
 import { notes } from "../../../data/notes.json";
 import MapPopupMarker from "./MapPopupMarker";
