@@ -4,6 +4,7 @@ import { notes } from "../../../data/notes.json";
 import NoteCardItem from "./NoteCardItem";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
+import { HiPlus } from "react-icons/hi2";
 
 const StyledNotesListView = styled.div`
   padding: 4rem;
@@ -23,10 +24,12 @@ function NotesListView() {
       {/* TODO: Make some use of this modal */}
       <div>
         <Modal>
-          <Modal.Open opens="test">
-            <Button variation="danger">DELETE EVERYTHING</Button>
+          <Modal.Open opens="drop-note">
+            <Button>
+              <HiPlus /> Drop Note
+            </Button>
           </Modal.Open>
-          <Modal.Window name="test">
+          <Modal.Window name="drop-note">
             <div>asd</div>
           </Modal.Window>
         </Modal>
