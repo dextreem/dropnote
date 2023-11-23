@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import NotesListView from "./NotesListView";
 import NotesMap from "./NotesMap";
+import Spinner from "../../components/Spinner";
+import { useNotes } from "./useNotes";
 
 const StyledNotes = styled.main`
   display: grid;
@@ -12,6 +14,12 @@ const StyledNotes = styled.main`
 `;
 
 function Notes() {
+  const { isLoading } = useNotes();
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <StyledNotes>
       <NotesListView />
