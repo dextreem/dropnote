@@ -17,11 +17,11 @@ as $$
     text,
     U.user_name,
     N.created_at,
-    st_y(location::geometry) as lat, 
-    st_x(location::geometry) as long, 
-    st_distance(location, st_point(long, lat)::geography) as dist_meters
+    st_x(location::geometry) as lat, 
+    st_y(location::geometry) as long, 
+    st_distance(location, st_point(lat, long)::geography) as dist_meters
   from public.notes N
   inner join public.users U
   on N.user_id = U.id
-  order by location <-> st_point(long, lat)::geography;
+  order by location <-> st_point(lat, long)::geography;
 $$;
