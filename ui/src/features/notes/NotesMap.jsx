@@ -9,6 +9,7 @@ const ZOOM_LEVEL = 16;
 
 const StyledMapContainer = styled(MapContainer)`
   height: 100%;
+  width: 100%;
 `;
 
 const NotesHeightContainer = styled.div`
