@@ -13,9 +13,9 @@ language sql
 as $$
   select 
     N.id, 
-    U.user_name,
     title, 
     text,
+    U.user_name,
     N.created_at,
     st_y(location::geometry) as lat, 
     st_x(location::geometry) as long, 
