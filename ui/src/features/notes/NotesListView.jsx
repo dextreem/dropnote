@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// import { notes } from "../../../data/notes.json";
 import NoteCardItem from "./NoteCardItem";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
@@ -22,8 +21,6 @@ const StyledNotesListView = styled.div`
 
 function NotesListView() {
   const { notes, isLoading } = useNotes();
-
-  console.log(notes);
 
   if (isLoading) {
     return <Spinner />;

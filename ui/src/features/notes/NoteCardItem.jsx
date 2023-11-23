@@ -57,8 +57,7 @@ const Like = styled.p`
 `;
 
 function NoteCardItem({ item }) {
-  const { title, text, id, lat, long, created_at, user_name, dist_meters } =
-    item;
+  const { title, id, user_name, dist_meters } = item;
 
   return (
     <StyledNoteCardItem>
@@ -74,14 +73,7 @@ function NoteCardItem({ item }) {
           <HiHandThumbUp />
           <span>&nbsp;Like</span>
         </Like>
-        <div>
-          {/* <span>{created_at.split("T")[0].replaceAll("-", ".")}</span> */}
-          {/* &nbsp;at&nbsp; */}
-          <span>
-            {/* {lat}/{long}  */}
-            {Math.floor(dist_meters)}m
-          </span>
-        </div>
+        <span>{Math.floor(dist_meters)}m</span>
       </Footer>
     </StyledNoteCardItem>
   );

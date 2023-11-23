@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { MapContainer, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import { useDarkMode } from "../../context/DarkModeContext";
-import { notes } from "../../../data/notes.json";
 import MapPopupMarker from "./MapPopupMarker";
+import { useNotes } from "./useNotes";
+import Spinner from "../../components/Spinner";
 
 const ZOOM_LEVEL = 16;
 
@@ -17,10 +18,13 @@ const NotesHeightContainer = styled.div`
 
 function NotesMap({ className }) {
   const { isDarkMode } = useDarkMode();
+  const { notes, isLoading } = useNotes();
 
-  const currentLocation = [notes[0].position.lat, notes[0].position.lng].map(
-    (l) => l - 0.001
-  );
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  const currentLocation = [notes[0].lat, notes[0].long].map((l) => l - 0.001);
 
   return (
     <NotesHeightContainer className={isDarkMode ? className : ""}>
@@ -41,7 +45,11 @@ function NotesMap({ className }) {
 
         {notes &&
           notes.map((note) => (
-            <MapPopupMarker type="note" key={note.id} position={note.position}>
+            <MapPopupMarker
+              type="note"
+              key={note.id}
+              position={[note.lat, note.long]}
+            >
               <span>{note.text}</span>
             </MapPopupMarker>
           ))}
