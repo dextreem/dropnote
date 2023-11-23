@@ -57,7 +57,8 @@ const Like = styled.p`
 `;
 
 function NoteCardItem({ item }) {
-  const { title, text, id, position, creation, user } = item;
+  const { title, text, id, lat, long, created_at, user_name, dist_meters } =
+    item;
 
   return (
     <StyledNoteCardItem>
@@ -65,9 +66,7 @@ function NoteCardItem({ item }) {
         <TitleText>
           ({id}) {title}
         </TitleText>
-        <User>
-          {user.name} ({user.id})
-        </User>
+        <User>{user_name}</User>
       </Title>
       {/* <Text>{text}</Text> */}
       <Footer>
@@ -76,10 +75,11 @@ function NoteCardItem({ item }) {
           <span>&nbsp;Like</span>
         </Like>
         <div>
-          <span>{creation.time}</span>
-          &nbsp;at&nbsp;
+          {/* <span>{created_at.split("T")[0].replaceAll("-", ".")}</span> */}
+          {/* &nbsp;at&nbsp; */}
           <span>
-            {position.lat}/{position.lng}
+            {/* {lat}/{long}  */}
+            {Math.floor(dist_meters)}m
           </span>
         </div>
       </Footer>

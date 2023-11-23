@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-import { notes } from "../../../data/notes.json";
+// import { notes } from "../../../data/notes.json";
 import NoteCardItem from "./NoteCardItem";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 import { HiPlus } from "react-icons/hi2";
+import { useNotes } from "./useNotes";
+import Spinner from "../../components/Spinner";
 
 const StyledNotesListView = styled.div`
   padding: 4rem;
@@ -19,6 +21,14 @@ const StyledNotesListView = styled.div`
 `;
 
 function NotesListView() {
+  const { notes, isLoading } = useNotes();
+
+  console.log(notes);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <StyledNotesListView>
       {/* TODO: Make some use of this modal */}
