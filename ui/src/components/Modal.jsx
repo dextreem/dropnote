@@ -42,6 +42,7 @@ const Button = styled.button`
   &:hover {
     background-color: var(--color-grey-100);
   }
+
   & svg {
     width: 2.4rem;
     height: 2.4rem;
@@ -80,8 +81,9 @@ function Window({ children, name }) {
       <StyledModal ref={ref}>
         <Button onClick={close}>
           <HiXMark />
-          <div>{cloneElement(children, { onCloseModal: close })}</div>
         </Button>
+
+        <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
     </Overlay>,
     document.body

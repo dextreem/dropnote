@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
 import NoteCardItem from "./NoteCardItem";
-import Modal from "../../components/Modal";
-import Button from "../../components/Button";
-import { HiPlus } from "react-icons/hi2";
 import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
+import AddNote from "./AddNote";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  padding: 4.4rem 0;
+  margin: 0 auto;
+
+  align-items: center;
+`;
 
 const StyledNotesListView = styled.div`
-  padding: 4rem;
+  padding: 0.6rem;
 
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -27,24 +36,14 @@ function NotesListView() {
   }
 
   return (
-    <StyledNotesListView>
-      {/* TODO: Make some use of this modal */}
-      <div>
-        <Modal>
-          <Modal.Open opens="drop-note">
-            <Button>
-              <HiPlus /> Drop Note
-            </Button>
-          </Modal.Open>
-          <Modal.Window name="drop-note">
-            <div>asd</div>
-          </Modal.Window>
-        </Modal>
-      </div>
-      {notes.map((n) => (
-        <NoteCardItem key={n.id} item={n} />
-      ))}
-    </StyledNotesListView>
+    <Container>
+      <AddNote />
+      <StyledNotesListView>
+        {notes.map((n) => (
+          <NoteCardItem key={n.id} item={n} />
+        ))}
+      </StyledNotesListView>
+    </Container>
   );
 }
 
