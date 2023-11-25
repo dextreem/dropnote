@@ -13,7 +13,7 @@ const StyledMapContainer = styled(MapContainer)`
 `;
 
 const NotesHeightContainer = styled.div`
-  padding: 4rem;
+  /* padding: 4rem; */
   height: 100%;
 `;
 

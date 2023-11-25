@@ -11,12 +11,13 @@ const Container = styled.div`
   gap: 1.6rem;
 
   margin: 0 auto;
+  /* padding-top: 4.4rem; */
 
   align-items: center;
 `;
 
 const StyledNotesListView = styled.div`
-  padding: 4.4rem 0;
+  padding: 1rem 0;
 
   display: grid;
   grid-template-columns: repeat(1, 1fr);

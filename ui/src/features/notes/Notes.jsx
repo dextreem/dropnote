@@ -11,6 +11,8 @@ const StyledNotes = styled.main`
   justify-content: center;
   margin: 0 auto;
   gap: 3.2rem;
+
+  padding-top: 1rem;
 `;
 
 function Notes() {
