@@ -26,6 +26,7 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
   const { errors } = formState;
 
   function onSubmit(data) {
+    console.log(data);
     if (isEditSession) {
       editNote(
         {
@@ -79,7 +80,12 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Note Text" error={errors?.text?.message}>
-        <Textarea type="text" id="text" disabled={isWorking} />
+        <Textarea
+          type="text"
+          id="text"
+          disabled={isWorking}
+          {...register("text")}
+        />
       </FormRow>
 
       <FormRow>
