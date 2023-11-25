@@ -10,13 +10,12 @@ import { useEditNote } from "./useEditNote";
 import Button from "../../components/Button";
 import Textarea from "../../components/TextArea";
 import useGeolocation from "../../states/geolocation";
-import { useEffect } from "react";
 
 function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
   const { isCreating, createNote } = useCreateNote();
   const { isEditing, editNote } = useEditNote();
   const isWorking = isCreating || isEditing;
-  const { currentLocation, getCurrentLocation } = useGeolocation();
+  const { currentLocation } = useGeolocation();
 
   const { id: editId, ...editValues } = noteToEdit;
   const isEditSession = Boolean(editId);
@@ -61,7 +60,7 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
     toast.error("Could not store the note! Please try again");
   }
 
-  useEffect(() => getCurrentLocation(), [getCurrentLocation]);
+  // useEffect(() => getCurrentLocation(), [getCurrentLocation]);
 
   return (
     <Form

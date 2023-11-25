@@ -4,6 +4,7 @@ import { useDarkMode } from "../../context/DarkModeContext";
 import MapPopupMarker from "./MapPopupMarker";
 import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
+import useGeolocation from "../../states/geolocation";
 
 const ZOOM_LEVEL = 16;
 
@@ -19,18 +20,17 @@ const NotesHeightContainer = styled.div`
 
 function NotesMap({ className }) {
   const { isDarkMode } = useDarkMode();
-  const { notes, isLoading } = useNotes();
+  const { notes, isLoading: isLoadingNotes } = useNotes();
+  const { currentLocation, isLoading: isLoadingLocation } = useGeolocation();
 
-  if (isLoading) {
+  if (isLoadingNotes || isLoadingLocation) {
     return <Spinner />;
   }
-
-  const currentLocation = [notes[0].lat, notes[0].long].map((l) => l - 0.001);
 
   return (
     <NotesHeightContainer className={isDarkMode ? className : ""}>
       <StyledMapContainer
-        center={currentLocation}
+        center={[currentLocation.lat, currentLocation.long]}
         zoom={ZOOM_LEVEL}
         scrollWheelZoom={false}
       >
@@ -39,7 +39,10 @@ function NotesMap({ className }) {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {currentLocation && (
-          <MapPopupMarker type="user" position={currentLocation}>
+          <MapPopupMarker
+            type="user"
+            position={[currentLocation.lat, currentLocation.long]}
+          >
             <span>You are here</span>
           </MapPopupMarker>
         )}
@@ -55,7 +58,7 @@ function NotesMap({ className }) {
             </MapPopupMarker>
           ))}
 
-        <ChangeCenter position={currentLocation} />
+        <ChangeCenter position={[currentLocation.lat, currentLocation.long]} />
         <DetectClick />
       </StyledMapContainer>
     </NotesHeightContainer>

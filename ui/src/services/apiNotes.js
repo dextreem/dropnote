@@ -1,10 +1,7 @@
 import supabase from "./supabase";
 
-export async function getNotes() {
-  const { data, error } = await supabase.rpc("nearby_notes", {
-    lat: 49.444,
-    long: 7.7692,
-  });
+export async function getNotes(location) {
+  const { data, error } = await supabase.rpc("nearby_notes", location);
 
   if (error) {
     console.error(error);

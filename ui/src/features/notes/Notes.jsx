@@ -3,6 +3,8 @@ import NotesListView from "./NotesListView";
 import NotesMap from "./NotesMap";
 import Spinner from "../../components/Spinner";
 import { useNotes } from "./useNotes";
+import useGeolocation from "../../states/geolocation";
+import { useEffect } from "react";
 
 const StyledNotes = styled.main`
   display: grid;
@@ -16,9 +18,11 @@ const StyledNotes = styled.main`
 `;
 
 function Notes() {
-  const { isLoading } = useNotes();
+  const { isLoading: isLoadingNotes } = useNotes();
+  const { getCurrentLocation, isLoading: isLoadingLocation } = useGeolocation();
+  useEffect(() => getCurrentLocation(), [getCurrentLocation]);
 
-  if (isLoading) {
+  if (isLoadingLocation || isLoadingNotes) {
     return <Spinner />;
   }
 

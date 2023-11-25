@@ -29,7 +29,7 @@ const useGeolocation = create((set, get) => ({
   currentLocation: null,
   getCurrentLocation: () => getPosition(set),
   error: null,
-  isLoading: false,
+  isLoading: true,
 }));
 
 export default useGeolocation;
