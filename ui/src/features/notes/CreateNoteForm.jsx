@@ -8,6 +8,7 @@ import Input from "../../components/Input";
 import { useCreateNote } from "./useCreateNote";
 import { useEditNote } from "./useEditNote";
 import Button from "../../components/Button";
+import Textarea from "../../components/TextArea";
 
 function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
   const { isCreating, createNote } = useCreateNote();
@@ -68,7 +69,7 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Note Text" error={errors?.text?.message}>
-        <Input type="text" id="text" disabled={isWorking} />
+        <Textarea type="text" id="text" disabled={isWorking} />
       </FormRow>
 
       <FormRow>
