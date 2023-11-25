@@ -6,8 +6,6 @@ export async function getNotes() {
     long: 7.7692,
   });
 
-  console.log(data);
-
   if (error) {
     console.error(error);
     throw new Error("Could not load notes");
