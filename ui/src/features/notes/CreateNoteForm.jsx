@@ -26,7 +26,6 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
   const { errors } = formState;
 
   function onSubmit(data) {
-    console.log(data);
     if (isEditSession) {
       editNote(
         {
@@ -92,6 +91,7 @@ function CreateNoteForm({ noteToEdit = {}, onCloseModal }) {
         <Button
           variation="secondary"
           type="reset"
+          disabled={isWorking}
           onClick={() => onCloseModal?.()}
         >
           Cancel

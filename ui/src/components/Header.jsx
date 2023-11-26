@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import DarkModeToggle from "./DarkModeToggle";
 import Logo from "./Logo";
+import Button from "./Button";
+import LoginForm from "../features/users/LoginForm";
+import Modal from "./Modal";
 
 const StyledHeader = styled.header`
   background: var(--color-grey-100);
@@ -27,6 +30,21 @@ const NavList = styled.ul`
   justify-content: center;
 `;
 
+function LoginButton() {
+  return (
+    <div>
+      <Modal>
+        <Modal.Open opens="login-form">
+          <Button>Login</Button>
+        </Modal.Open>
+        <Modal.Window name="login-form">
+          <LoginForm />
+        </Modal.Window>
+      </Modal>
+    </div>
+  );
+}
+
 function Header() {
   return (
     <StyledHeader>
@@ -35,7 +53,7 @@ function Header() {
         <NavList>
           <li>Nav 1</li>
           <li>Nav 2</li>
-          <li>Nav 3</li>
+          <LoginButton />
         </NavList>
         <DarkModeToggle />
       </NavBar>
