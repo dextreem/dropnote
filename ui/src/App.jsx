@@ -30,9 +30,9 @@ function App() {
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="home" />} />
               <Route path="home" element={<Home />} />
-              <Route path="login" element={<Login />} />
               <Route path="notes" element={<Notes />} />
             </Route>
+            <Route path="login" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
