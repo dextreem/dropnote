@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-
+import LoginButton from "../components/LoginButton";
 import DarkModeToggle from "./DarkModeToggle";
 import Logo from "./Logo";
-import Spinner from "./Spinner";
 import { useUser } from "../features/users/useUser";
 
 const StyledHeader = styled.header`
@@ -34,7 +31,7 @@ const NavList = styled.ul`
 `;
 
 function Header() {
-  const { user, isAuthenticated, isLoading } = useUser();
+  const { user, isAuthenticated } = useUser();
 
   return (
     <StyledHeader>
@@ -43,10 +40,8 @@ function Header() {
         <NavList>
           <li>Nav 1</li>
           <li>Nav 2</li>
-          {!isLoading && !isAuthenticated && <LoginButton />}
-          {!isLoading && isAuthenticated && <LogoutButton />}
-          {isLoading && <Spinner />}
-          {user?.email || "anon"}
+          {!isAuthenticated && <LoginButton />}
+          {isAuthenticated && <LogoutButton />}
         </NavList>
         <DarkModeToggle />
       </NavBar>

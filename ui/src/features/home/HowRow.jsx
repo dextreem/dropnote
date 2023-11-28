@@ -25,6 +25,10 @@ const Number = styled.p`
   ${(props) => numberPositions[props.variant]}
 `;
 
+Number.defaultProps = {
+  variant: "left",
+};
+
 const Title = styled.h3`
   color: var(--color-brand-600);
   text-transform: uppercase;
