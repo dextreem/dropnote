@@ -35,6 +35,7 @@ function LoginForm({ onCloseModal }) {
           type="text"
           id="email"
           disabled={isLoading}
+          defaultValue="dominic@test.de"
           {...register("email", {
             required: "Please provide your email.",
           })}
@@ -46,6 +47,7 @@ function LoginForm({ onCloseModal }) {
           type="password"
           id="password"
           disabled={isLoading}
+          defaultValue="secure"
           {...register("password", {
             required: "Please provide your password.",
           })}

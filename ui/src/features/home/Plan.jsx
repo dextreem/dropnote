@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import PlanFeature from "./PlanFeature";
 import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const StyledPlan = styled.div`
   display: flex;
@@ -65,8 +66,22 @@ const U1 = styled.ul`
 `;
 
 function Plan({ plan }) {
-  const { name, price, subtitle, features, buttonText, highlight, active } =
-    plan;
+  const navigate = useNavigate();
+
+  const {
+    name,
+    price,
+    subtitle,
+    features,
+    buttonText,
+    buttonGoTo,
+    highlight,
+    active,
+  } = plan;
+
+  function onCtaClicked() {
+    navigate(buttonGoTo);
+  }
 
   return (
     <StyledPlan inactive={!active}>
@@ -82,9 +97,11 @@ function Plan({ plan }) {
         ))}
       </U1>
       {highlight ? (
-        <Button disabled={!active}>{buttonText}</Button>
+        <Button onClick={onCtaClicked} disabled={!active}>
+          {buttonText}
+        </Button>
       ) : (
-        <Button variation="secondary" disabled={!active}>
+        <Button onClick={onCtaClicked} variation="secondary" disabled={!active}>
           {buttonText}
         </Button>
       )}
