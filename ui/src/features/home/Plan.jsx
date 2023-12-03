@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PlanFeature from "./PlanFeature";
 import Button from "../../components/Button";
 
@@ -10,7 +10,33 @@ const StyledPlan = styled.div`
   justify-self: end;
   padding: 2.4rem 4.6rem;
   background-color: var(--color-brand-50);
+
+  overflow: hidden;
+  ${(props) =>
+    props.inactive &&
+    css`
+      filter: grayscale(1);
+
+      &::after {
+        content: "Coming Soon";
+        position: absolute;
+        top: 7%;
+        right: -28%;
+
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #333;
+        background-color: var(--color-brand-200);
+        padding: 1rem 8rem;
+        transform: rotate(45deg);
+      }
+    `};
 `;
+
+StyledPlan.defaultProps = {
+  inactive: false,
+};
 
 const H3 = styled.h3`
   color: var(--color-brand-600);
@@ -39,10 +65,11 @@ const U1 = styled.ul`
 `;
 
 function Plan({ plan }) {
-  const { name, price, subtitle, features, buttonText, highlight } = plan;
+  const { name, price, subtitle, features, buttonText, highlight, active } =
+    plan;
 
   return (
-    <StyledPlan>
+    <StyledPlan inactive={!active}>
       <H3>{name}</H3>
       <p>
         <Price>{price}</Price>
@@ -55,9 +82,11 @@ function Plan({ plan }) {
         ))}
       </U1>
       {highlight ? (
-        <Button>{buttonText}</Button>
+        <Button disabled={!active}>{buttonText}</Button>
       ) : (
-        <Button variation="secondary">{buttonText}</Button>
+        <Button variation="secondary" disabled={!active}>
+          {buttonText}
+        </Button>
       )}
     </StyledPlan>
   );

@@ -19,6 +19,7 @@ const pricing = [
     ],
     buttonText: "Start Adventure",
     highlight: false,
+    active: true,
   },
   {
     name: "Signed Up",
@@ -40,6 +41,7 @@ const pricing = [
     ],
     buttonText: "Start Adventure",
     highlight: false,
+    active: true,
   },
   {
     name: "Starter",
@@ -61,6 +63,7 @@ const pricing = [
     ],
     buttonText: "Start Adventure",
     highlight: true,
+    active: false,
   },
 ];
 
