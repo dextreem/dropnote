@@ -41,12 +41,13 @@ function Header() {
       <Logo />
       <NavBar>
         <NavList>
-          <li>Nav 1</li>
-          <li>Nav 2</li>
+          <li>How it Works</li>
+          <li>Plans</li>
+          <li>Notes</li>
           {!isLoading && !isAuthenticated && <LoginButton />}
-          {!isLoading && isAuthenticated && <LogoutButton />}
           {isLoading && <Spinner />}
           {user?.email || "anon"}
+          {!isLoading && isAuthenticated && <LogoutButton />}
         </NavList>
         <DarkModeToggle />
       </NavBar>

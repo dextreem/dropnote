@@ -22,7 +22,7 @@ const H2 = styled.h2`
 
 const StyledPlans = styled.div`
   display: grid;
-  grid-template-columns: repeat(${(props) => props.numberPlans}, 1fr);
+  grid-template-columns: repeat(${(props) => props.plans}, 1fr);
 
   column-gap: 4.4rem;
   align-items: center;
@@ -35,7 +35,7 @@ function Plans() {
     <PlansSection>
       <P>Plans</P>
       <H2>Leave footprints for free</H2>
-      <StyledPlans numberPlans={plans?.length || 0}>
+      <StyledPlans plans={plans?.length || 0}>
         {plans.map((p) => (
           <Plan key={p.name} plan={p} />
         ))}

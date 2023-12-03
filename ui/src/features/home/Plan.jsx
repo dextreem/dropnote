@@ -14,7 +14,7 @@ const StyledPlan = styled.div`
 
   overflow: hidden;
   ${(props) =>
-    props.inactive &&
+    props.active === "false" &&
     css`
       filter: grayscale(1);
 
@@ -36,7 +36,7 @@ const StyledPlan = styled.div`
 `;
 
 StyledPlan.defaultProps = {
-  inactive: false,
+  active: "true",
 };
 
 const H3 = styled.h3`
@@ -84,7 +84,7 @@ function Plan({ plan }) {
   }
 
   return (
-    <StyledPlan inactive={!active}>
+    <StyledPlan active={active.toString()}>
       <H3>{name}</H3>
       <p>
         <Price>{price}</Price>
