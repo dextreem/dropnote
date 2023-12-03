@@ -26,7 +26,7 @@ const H2 = styled.h2`
 
 function SignUp() {
   return (
-    <SignUpSection>
+    <SignUpSection id="signup">
       <P>Sign Up</P>
       <H2>Start your adventure here</H2>
       <SignupForm />

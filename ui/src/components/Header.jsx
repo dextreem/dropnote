@@ -7,6 +7,7 @@ import DarkModeToggle from "./DarkModeToggle";
 import Logo from "./Logo";
 import Spinner from "./Spinner";
 import { useUser } from "../features/users/useUser";
+import { AnchorLink, StyledLink } from "./AnchorLink";
 
 const StyledHeader = styled.header`
   background: var(--color-grey-100);
@@ -41,9 +42,16 @@ function Header() {
       <Logo />
       <NavBar>
         <NavList>
-          <li>How it Works</li>
-          <li>Plans</li>
-          <li>Notes</li>
+          <li>
+            <AnchorLink href="#how">How it Works</AnchorLink>
+          </li>
+          <li>
+            <AnchorLink href="#plans">Plans</AnchorLink>
+          </li>
+          <StyledLink to="/notes">Notes</StyledLink>
+          <li>
+            <AnchorLink href="#signup">SignUp</AnchorLink>
+          </li>
           {!isLoading && !isAuthenticated && <LoginButton />}
           {isLoading && <Spinner />}
           {user?.email || "anon"}

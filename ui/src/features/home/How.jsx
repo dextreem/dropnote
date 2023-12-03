@@ -33,7 +33,7 @@ const HowToSteps = styled.div`
 
 function How() {
   return (
-    <HowSection>
+    <HowSection id="how">
       <P>How it works</P>
       <H2>Leave a digital footprint in 3 simple steps</H2>
       <HowToSteps>

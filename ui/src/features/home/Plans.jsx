@@ -32,7 +32,7 @@ const StyledPlans = styled.div`
 
 function Plans() {
   return (
-    <PlansSection>
+    <PlansSection id="plans">
       <P>Plans</P>
       <H2>Leave footprints for free</H2>
       <StyledPlans plans={plans?.length || 0}>
