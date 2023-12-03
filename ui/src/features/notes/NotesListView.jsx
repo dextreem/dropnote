@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 import NoteCardItem from "./NoteCardItem";
-import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
 import AddNote from "./AddNote";
+
+import { useNotes } from "./useNotes";
+import { useUser } from "../users/useUser";
+import LinkButton from "../../components/LinkButton";
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +33,7 @@ const StyledNotesListView = styled.div`
 
 function NotesListView() {
   const { notes, isLoading } = useNotes();
+  const { isAuthenticated } = useUser();
 
   if (isLoading) {
     return <Spinner />;
@@ -37,7 +41,11 @@ function NotesListView() {
 
   return (
     <Container>
-      <AddNote />
+      {isAuthenticated ? (
+        <AddNote />
+      ) : (
+        <LinkButton to="/signup">Signup to Drop Notes</LinkButton>
+      )}
       <StyledNotesListView>
         {notes.map((n) => (
           <NoteCardItem key={n.id} item={n} />

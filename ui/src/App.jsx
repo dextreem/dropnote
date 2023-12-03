@@ -8,6 +8,8 @@ import Notes from "./features/notes/Notes";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import AppLayout from "./ui/AppLayout";
 import Login from "./features/users/Login";
+import SignUpView from "./features/signup/SignUpView";
+import ErrorPage from "./features/error/ErrorPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,8 +33,10 @@ function App() {
               <Route index element={<Navigate replace to="home" />} />
               <Route path="home" element={<Home />} />
               <Route path="notes" element={<Notes />} />
+              <Route path="signup" element={<SignUpView />} />
+              <Route path="login" element={<Login />} />
             </Route>
-            <Route path="login" element={<Login />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
