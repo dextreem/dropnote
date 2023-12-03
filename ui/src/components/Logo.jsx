@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLogo = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  cursor: pointer;
 `;
 
 const Img = styled.img`
@@ -18,8 +21,14 @@ const Span = styled.span`
 `;
 
 function Logo() {
+  const navigate = useNavigate();
+
+  function onLogoClicked() {
+    navigate("/home");
+  }
+
   return (
-    <StyledLogo role="img" alt="WanderTag Logo">
+    <StyledLogo role="img" alt="WanderTag Logo" onClick={onLogoClicked}>
       <Img src="/logo.svg" alt="WanderTag Logo - Icon"></Img>
       <Span>WanderTag</Span>
     </StyledLogo>
