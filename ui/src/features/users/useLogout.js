@@ -9,7 +9,7 @@ export function useLogout() {
   const { mutate: logout, isLoading } = useMutation({
     mutationFn: logoutApi,
     onSuccess: () => {
-      queryClient.removeQueries();
+      queryClient.invalidateQueries();
       navigate("/login", { replace: true });
     },
   });
