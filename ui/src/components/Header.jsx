@@ -37,24 +37,36 @@ const NavList = styled.ul`
 function Header() {
   const { user, isAuthenticated, isLoading } = useUser();
 
+  const isLoginPage = window.location.pathname === "/login";
+  const isHomePage = window.location.pathname === "/home";
+  const isNotesPage = window.location.pathname === "/notes";
+  const isSignupPage = window.location.pathname === "/signup";
+
   return (
     <StyledHeader>
       <Logo />
       <NavBar>
         <NavList>
-          <li>
-            <AnchorLink href="#how">How it Works</AnchorLink>
-          </li>
-          <li>
-            <AnchorLink href="#plans">Plans</AnchorLink>
-          </li>
-          <StyledLink to="/notes">Notes</StyledLink>
-          <li>
-            <AnchorLink href="#signup">SignUp</AnchorLink>
-          </li>
-          {!isLoading && !isAuthenticated && <LoginButton />}
+          {isHomePage && (
+            <li>
+              <AnchorLink href="/home#how">How it Works</AnchorLink>
+            </li>
+          )}
+          {isHomePage && (
+            <li>
+              <AnchorLink href="/home#plans">Plans</AnchorLink>
+            </li>
+          )}
+          {!isNotesPage && <StyledLink to="/notes">Notes</StyledLink>}
+          {isHomePage && !isSignupPage && (
+            <li>
+              <AnchorLink href="/home#signup">Sign Up</AnchorLink>
+            </li>
+          )}
+          {isLoginPage || (!isLoading && !isAuthenticated && <LoginButton />)}
           {isLoading && <Spinner />}
-          {user?.email || "anon"}
+          {/* {user?.email || "anon"} */}
+          {user?.email}
           {!isLoading && isAuthenticated && <LogoutButton />}
         </NavList>
         <DarkModeToggle />

@@ -17,6 +17,8 @@ Bold: 700
 
 :root {
 
+  scroll-behavior: smooth;
+
   --color-grey-fixed-light: #e5e7eb;
   --color-grey-fixed-dark: #374151;
   --color-brand-fixed-medium: #087f5b;
