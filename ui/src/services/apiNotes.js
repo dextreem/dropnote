@@ -34,11 +34,12 @@ async function getNoteUserID(id) {
 }
 
 export async function createEditNote(newNote, id) {
+  const user = await getCurrentUser();
   let query = supabase.from("notes");
 
   const note = {
     ...newNote,
-    user_id: "87c72612-f017-48ac-9834-97917c652e0d",
+    user_id: user.id,
   };
 
   // Either insert for new or update for edit
