@@ -64,6 +64,7 @@ function SignupForm() {
       <FormRowVertical label="Password" errors={errors?.password?.message}>
         <Input
           id="password"
+          type="password"
           disabled={isLoading}
           {...register("password", {
             required: "Please provide a proper password!",

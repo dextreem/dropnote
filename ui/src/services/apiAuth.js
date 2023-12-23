@@ -1,3 +1,4 @@
+import { addUser } from "./apiUsers";
 import supabase from "./supabase";
 
 export async function signup({ userName, email, password }) {
@@ -14,7 +15,9 @@ export async function signup({ userName, email, password }) {
 
   if (error) throw new Error(error.message);
 
-  return data;
+  await addUser(data.user.id, userName);
+
+  return { ...data, userName };
 }
 
 export async function login({ email, password }) {

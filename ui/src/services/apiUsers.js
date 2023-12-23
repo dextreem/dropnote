@@ -10,3 +10,14 @@ export async function getUser(id) {
 
   return data;
 }
+
+export async function addUser(id, userName) {
+  const { error } = await supabase
+    .from("users")
+    .insert({ id, user_name: userName });
+
+  if (error) {
+    console.error(error);
+    throw new Error("User could not be created. Please try again");
+  }
+}
