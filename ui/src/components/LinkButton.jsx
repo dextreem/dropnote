@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const sizes = {
@@ -48,7 +49,7 @@ const variations = {
   `,
 };
 
-const Button = styled.button`
+const StyledLinkButton = styled(Link)`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
@@ -57,9 +58,17 @@ const Button = styled.button`
   ${(props) => variations[props.variation]};
 `;
 
-Button.defaultProps = {
+StyledLinkButton.defaultProps = {
   variation: "primary",
   size: "medium",
 };
 
-export default Button;
+function LinkButton({ to, children, variation, size }) {
+  return (
+    <StyledLinkButton to={to} variation={variation} size={size}>
+      {children}
+    </StyledLinkButton>
+  );
+}
+
+export default LinkButton;

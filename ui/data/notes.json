@@ -10,6 +10,7 @@
         "lat": 49.444,
         "lng": 7.7692
       },
+      "title": "First MEssage",
       "text": "Hello there 🙋‍♂️",
       "creation": { "day": "01.01.2023", "time": "10:00:00" }
     },
@@ -23,6 +24,7 @@
         "lat": 49.457,
         "lng": 7.7702
       },
+      "title": "Yoyo",
       "text": "Watch out!",
       "creation": { "day": "01.01.2023", "time": "11:00:00" }
     },
@@ -36,6 +38,7 @@
         "lat": 49.436,
         "lng": 7.769
       },
+      "title": "This is a very long header line for testing",
       "text": "Take this, filthy peasant",
       "creation": { "day": "01.01.2023", "time": "12:00:00" }
     },
@@ -49,7 +52,8 @@
         "lat": 49.445,
         "lng": 7.7694
       },
-      "text": "sup?",
+      "title": "Blabla",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et sint itaque aperiam cumque nemo a voluptates amet quisquam, eos temporibus odio at rerum, accusamus praesentium aspernatur ipsam. Nobis, quasi illo.",
       "creation": { "day": "01.01.2023", "time": "13:00:00" }
     }
   ]

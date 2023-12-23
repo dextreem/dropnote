@@ -1,33 +1,46 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import SpinnerFullPage from "./components/SpinnerFullPage";
-import { GeolocationProvider } from "./contexts/GeolocationContext";
+import GlobalStyles from "./styles/GlobalStyles";
+import Home from "./features/home/Home";
+import Notes from "./features/notes/Notes";
+import { DarkModeProvider } from "./context/DarkModeContext";
+import AppLayout from "./ui/AppLayout";
+import Login from "./features/users/Login";
+import SignUpView from "./features/signup/SignUpView";
+import ErrorPage from "./features/error/ErrorPage";
 
-// const Homepage = lazy(() => import("./pages/Homepage"));
-const PageNotFound = lazy(() => import("./pages/PageNotFound"));
-const SelectView = lazy(() => import("./pages/SelectView"));
-const MapView = lazy(() => import("./pages/MapView"));
-const ListView = lazy(() => import("./pages/ListView"));
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+      // staleTime: 60 * 1000
+    },
+  },
+});
 
 function App() {
   return (
-    <GeolocationProvider>
-      <BrowserRouter>
-        <Suspense fallback={<SpinnerFullPage />} />
-        <Routes>
-          {/* <Route index element={<Homepage />} /> */}
-          <Route index element={<ListView />} />
-          <Route path="app" element={<SelectView />} />
-          <Route path="map" element={<MapView />} />
-          <Route path="list" element={<ListView />} />
-          <Route path="new" element={null} />
-          <Route path="login" element={null} />
-          <Route path="user" element={null} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </GeolocationProvider>
+    <DarkModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="home" />} />
+              <Route path="home" element={<Home />} />
+              <Route path="notes" element={<Notes />} />
+              <Route path="signup" element={<SignUpView />} />
+              <Route path="login" element={<Login />} />
+            </Route>
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </DarkModeProvider>
   );
 }
 
