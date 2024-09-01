@@ -5,6 +5,7 @@ import MapPopupMarker from "./MapPopupMarker";
 import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
 import useGeolocation from "../../states/geolocation";
+import { toast } from "react-hot-toast";
 
 const ZOOM_LEVEL = 16;
 
@@ -20,11 +21,27 @@ const NotesHeightContainer = styled.div`
 
 function NotesMap({ className }) {
   const { isDarkMode } = useDarkMode();
-  const { notes, isLoading: isLoadingNotes } = useNotes();
-  const { currentLocation, isLoading: isLoadingLocation } = useGeolocation();
+  const { notes, error: notesError, isLoading: isLoadingNotes } = useNotes();
+  const {
+    currentLocation,
+    error: locationError,
+    isLoading: isLoadingLocation,
+  } = useGeolocation();
 
   if (isLoadingNotes || isLoadingLocation) {
     return <Spinner />;
+  }
+
+  if (notesError) {
+    toast.error("Error while fetching notes from server: " + notesError);
+    return <span>{notesError}</span>;
+  }
+
+  if (locationError) {
+    toast.error(
+      "Error while retrieving location from your device: " + notesError
+    );
+    return <span>{locationError}</span>;
   }
 
   return (
@@ -46,7 +63,6 @@ function NotesMap({ className }) {
             <span>You are here</span>
           </MapPopupMarker>
         )}
-
         {notes &&
           notes.map((note) => (
             <MapPopupMarker
@@ -57,7 +73,6 @@ function NotesMap({ className }) {
               <span>{note.text}</span>
             </MapPopupMarker>
           ))}
-
         <ChangeCenter position={[currentLocation.lat, currentLocation.long]} />
         <DetectClick />
       </StyledMapContainer>
