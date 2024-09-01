@@ -5,7 +5,7 @@ import MapPopupMarker from "./MapPopupMarker";
 import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
 import useGeolocation from "../../states/geolocation";
-import { toast } from "react-hot-toast";
+import Error from "../../components/Error";
 
 const ZOOM_LEVEL = 16;
 
@@ -33,15 +33,11 @@ function NotesMap({ className }) {
   }
 
   if (notesError) {
-    toast.error("Error while fetching notes from server: " + notesError);
-    return <span>{notesError}</span>;
+    return <Error errorMessage={notesError} />;
   }
 
   if (locationError) {
-    toast.error(
-      "Error while retrieving location from your device: " + locationError
-    );
-    return <span>{locationError}</span>;
+    return <Error errorMessage={locationError} />;
   }
 
   return (
