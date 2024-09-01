@@ -39,7 +39,7 @@ function NotesMap({ className }) {
 
   if (locationError) {
     toast.error(
-      "Error while retrieving location from your device: " + notesError
+      "Error while retrieving location from your device: " + locationError
     );
     return <span>{locationError}</span>;
   }
