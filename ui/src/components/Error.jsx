@@ -1,3 +1,6 @@
+import styled from "styled-components";
+import Button from "./Button";
+
 const funnyMessages = [
   "Oh no, it looks like we've lost the trail!",
   "Oops, we took a wrong turn at the last fork!",
@@ -8,18 +11,21 @@ const funnyMessages = [
   "Oh deer, we’ve spooked the app. Let’s not panic and retry!",
 ];
 
+const ErrorComponent = styled.div`
+  display: grid;
+  gap: 1.2rem;
+`;
+
 function Error({ errorMessage }) {
   const randomMessage =
     funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
   return (
-    <div className="error-container">
+    <ErrorComponent>
       <h1>🗺️ Trail Error!</h1>
-      <p className="funny-message">{randomMessage}</p>
-      <p className="error-details">Details: {errorMessage}</p>
-      <button onClick={() => window.location.reload()} className="retry-button">
-        🥾 Try Again
-      </button>
-    </div>
+      <p>{randomMessage}</p>
+      <p>Details: {errorMessage}</p>
+      <Button onClick={() => window.location.reload()}>🥾 Try Again</Button>
+    </ErrorComponent>
   );
 }
 
