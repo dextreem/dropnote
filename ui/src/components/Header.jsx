@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import Spinner from "./Spinner";
 import { useUser } from "../features/users/useUser";
 import { AnchorLink, StyledLink } from "./AnchorLink";
+import { useLocation } from "react-router-dom";
 
 const StyledHeader = styled.header`
   background: var(--color-grey-100);
@@ -36,11 +37,12 @@ const NavList = styled.ul`
 
 function Header() {
   const { user, isAuthenticated, isLoading } = useUser();
+  const location = useLocation();
 
-  const isLoginPage = window.location.pathname === "/login";
-  const isHomePage = window.location.pathname === "/home";
-  const isNotesPage = window.location.pathname === "/notes";
-  const isSignupPage = window.location.pathname === "/signup";
+  const isLoginPage = location.pathname === "/login";
+  const isHomePage = location.pathname === "/home";
+  const isNotesPage = location.pathname === "/notes";
+  const isSignupPage = location.pathname === "/signup";
 
   return (
     <StyledHeader>
