@@ -14,7 +14,7 @@ function Footer() {
   return (
     <StyledFooter>
       <p>
-        &copy;<span> WanderTag 2023. All rights reserved.</span>
+        &copy;<span> WanderTag 2024. All rights reserved.</span>
       </p>
     </StyledFooter>
   );
