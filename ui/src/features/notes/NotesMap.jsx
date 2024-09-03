@@ -6,6 +6,7 @@ import { useNotes } from "./useNotes";
 import Spinner from "../../components/Spinner";
 import useGeolocation from "../../states/geolocation";
 import Error from "../../components/Error";
+import useSelectedNotes from "../../states/notes";
 
 const ZOOM_LEVEL = 16;
 
@@ -27,6 +28,9 @@ function NotesMap({ className }) {
     error: locationError,
     isLoading: isLoadingLocation,
   } = useGeolocation();
+  const { lat: noteLat, long: noteLong } = useSelectedNotes(
+    (state) => state.selectedNote
+  );
 
   if (isLoadingNotes || isLoadingLocation) {
     return <Spinner />;
@@ -40,10 +44,15 @@ function NotesMap({ className }) {
     return <Error errorMessage={locationError} />;
   }
 
+  const location =
+    noteLat && noteLong
+      ? { lat: noteLat, long: noteLong }
+      : { lat: currentLocation.lat, long: currentLocation.long };
+
   return (
     <NotesHeightContainer className={isDarkMode ? className : ""}>
       <StyledMapContainer
-        center={[currentLocation.lat, currentLocation.long]}
+        center={[location.lat, location.long]}
         zoom={ZOOM_LEVEL}
         scrollWheelZoom={false}
       >
@@ -69,7 +78,7 @@ function NotesMap({ className }) {
               <span>{note.text}</span>
             </MapPopupMarker>
           ))}
-        <ChangeCenter position={[currentLocation.lat, currentLocation.long]} />
+        <ChangeCenter position={[location.lat, location.long]} />
         <DetectClick />
       </StyledMapContainer>
     </NotesHeightContainer>

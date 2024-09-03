@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { HiHandThumbUp, HiOutlineTrash } from "react-icons/hi2";
 import ButtonIcon from "../../components/ButtonIcon";
 import { useDeleteNote } from "./useDeleteNote";
+import useSelectedNotes from "../../states/notes";
 
 const StyledNoteCardItem = styled.div`
   padding: 2rem;
@@ -61,9 +62,14 @@ const Like = styled.p`
 function NoteCardItem({ item }) {
   const { title, id, user_name, dist_meters } = item;
   const { deleteNote, isDeleting } = useDeleteNote();
+  const setSelectedNote = useSelectedNotes((state) => state.setSelectedNote);
+
+  function onClickNote() {
+    setSelectedNote(item);
+  }
 
   return (
-    <StyledNoteCardItem>
+    <StyledNoteCardItem onClick={onClickNote}>
       <Title>
         <TitleText>
           ({id}) {title}

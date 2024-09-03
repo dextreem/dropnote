@@ -67,7 +67,6 @@ function Header() {
           )}
           {isLoginPage || (!isLoading && !isAuthenticated && <LoginButton />)}
           {isLoading && <Spinner />}
-          {/* {user?.email || "anon"} */}
           {user?.email}
           {!isLoading && isAuthenticated && <LogoutButton />}
         </NavList>
