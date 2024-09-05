@@ -98,7 +98,6 @@ function DetectClick() {
 }
 
 const StyledNotesMap = styled(NotesMap)`
-  padding: 4rem;
   height: 100%;
 
   .leaflet-layer,
