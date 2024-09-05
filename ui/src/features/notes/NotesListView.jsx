@@ -11,7 +11,7 @@ import LinkButton from "../../components/LinkButton";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 0.8rem;
 
   margin: 0.6rem 1.2rem;
   align-items: center;
@@ -24,7 +24,7 @@ const StyledNotesListView = styled.div`
   grid-template-columns: repeat(1, 1fr);
   align-items: center;
   justify-content: space-between;
-  gap: 1.6rem;
+  gap: 1.2rem;
   max-height: 78vh;
   overflow-y: auto;
 `;

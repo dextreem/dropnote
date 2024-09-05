@@ -12,9 +12,7 @@ const StyledNotes = styled.main`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  gap: 3.2rem;
-
-  padding-top: 1rem;
+  gap: 1.2rem;
 `;
 
 function Notes() {
