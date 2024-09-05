@@ -5,6 +5,7 @@ import Spinner from "../../components/Spinner";
 import { useNotes } from "./useNotes";
 import useGeolocation from "../../states/geolocation";
 import { useEffect } from "react";
+import NotesListMapToggle from "./NotesListMapToggle";
 
 const StyledNotes = styled.main`
   display: grid;
@@ -25,10 +26,13 @@ function Notes() {
   }
 
   return (
-    <StyledNotes>
-      <NotesListView />
-      <NotesMap />
-    </StyledNotes>
+    <div>
+      <NotesListMapToggle />
+      <StyledNotes>
+        <NotesListView />
+        <NotesMap />
+      </StyledNotes>
+    </div>
   );
 }
 
