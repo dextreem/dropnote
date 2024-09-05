@@ -13,14 +13,12 @@ const Container = styled.div`
   flex-direction: column;
   gap: 1.6rem;
 
-  margin: 0 auto;
-  /* padding-top: 4.4rem; */
-
+  margin: 0.6rem 1.2rem;
   align-items: center;
 `;
 
 const StyledNotesListView = styled.div`
-  padding: 1rem 0;
+  padding: 0.6rem 1.2rem;
 
   display: grid;
   grid-template-columns: repeat(1, 1fr);

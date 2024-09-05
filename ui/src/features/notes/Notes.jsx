@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const StyledNotes = styled.main`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: minmax(30rem, 1fr) 3fr;
   align-items: center;
   justify-content: center;
   margin: 0 auto;

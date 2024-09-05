@@ -209,6 +209,24 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+::-webkit-scrollbar {
+  width: 6pt; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-700); 
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-grey-400); /* Set the color of the track */
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-brand-500);
+}
+
 `;
 
 export default GlobalStyles;
