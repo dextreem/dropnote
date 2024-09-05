@@ -6,7 +6,6 @@ import useSelectedNotes from "../../states/notes";
 
 const StyledNoteCardItem = styled.div`
   padding: 2rem;
-  /* border: 2px solid var(--color-grey-100); */
   box-shadow: 0 2px 4px var(--color-grey-100);
   border-radius: var(--border-radius-lg);
   background-color: var(--color-grey-200);
@@ -39,11 +38,6 @@ const User = styled.span`
   color: var(--color-grey-400);
 `;
 
-// const Text = styled.p`
-//   font-size: 1.8rem;
-//   margin-bottom: 2rem;
-// `;
-
 const Footer = styled.footer`
   font-size: 1.4rem;
   color: var(--color-grey-500);
@@ -61,7 +55,7 @@ const Like = styled.p`
 
 function NoteCardItem({ item }) {
   const { title, id, user_name, dist_meters } = item;
-  const { deleteNote, isDeleting } = useDeleteNote();
+  const { deleteNote } = useDeleteNote();
   const setSelectedNote = useSelectedNotes((state) => state.setSelectedNote);
 
   function onClickNote() {
@@ -79,7 +73,6 @@ function NoteCardItem({ item }) {
           <HiOutlineTrash />
         </ButtonIcon>
       </Title>
-      {/* <Text>{text}</Text> */}
       <Footer>
         <Like>
           <HiHandThumbUp />
