@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Button from "../../components/Button";
+import { devices } from "../../styles/breakpoints";
 
 const StyledNotesListMapToggle = styled.div`
   display: none;
 
-  @media (max-width: 600pt) {
+  @media ${devices.tablet} {
     display: flex;
     gap: 0.6rem;
     margin: 0.3rem 0.6rem;
@@ -18,8 +19,8 @@ const StyledButton = styled(Button)`
 function NotesListMapToggle() {
   return (
     <StyledNotesListMapToggle>
-      <StyledButton>Notes List</StyledButton>
-      <StyledButton>Notes Map</StyledButton>
+      <StyledButton>Show As List</StyledButton>
+      <StyledButton>Show on Map</StyledButton>
     </StyledNotesListMapToggle>
   );
 }
