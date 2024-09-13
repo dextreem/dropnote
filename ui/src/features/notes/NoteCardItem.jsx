@@ -3,6 +3,7 @@ import { HiHandThumbUp, HiOutlineTrash } from "react-icons/hi2";
 import ButtonIcon from "../../components/ButtonIcon";
 import { useDeleteNote } from "./useDeleteNote";
 import useSelectedNotes from "../../states/notes";
+import useUiState, { NOTES_COMPONENTS } from "../../states/ui";
 
 const StyledNoteCardItem = styled.div`
   padding: 2rem;
@@ -57,8 +58,12 @@ function NoteCardItem({ item }) {
   const { title, id, user_name, dist_meters } = item;
   const { deleteNote } = useDeleteNote();
   const setSelectedNote = useSelectedNotes((state) => state.setSelectedNote);
+  const setVisibleNoteComponent = useUiState(
+    (state) => state.setNoteVisibleComponent
+  );
 
   function onClickNote() {
+    setVisibleNoteComponent(NOTES_COMPONENTS.NOTES_MAP);
     setSelectedNote(item);
   }
 
