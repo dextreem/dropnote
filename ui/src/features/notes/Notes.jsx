@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import NotesListView from "./NotesListView";
 import NotesMap from "./NotesMap";
 import Spinner from "../../components/Spinner";
@@ -7,6 +7,7 @@ import useGeolocation from "../../states/geolocation";
 import { useEffect } from "react";
 import NotesListMapToggle from "./NotesListMapToggle";
 import { devices } from "../../styles/breakpoints";
+import useUiState, { NOTES_COMPONENTS } from "../../states/ui";
 
 const StyledNotes = styled.main`
   display: grid;
@@ -20,12 +21,33 @@ const StyledNotes = styled.main`
     display: flex;
     gap: 0.6rem;
     margin: 0.3rem 0.6rem;
+    height: 100%;
+    width: 100%;
   }
+`;
+
+const StyledDiv = styled.div`
+  height: 100%;
+  width: 100%;
+
+  ${(props) =>
+    props.$hide === "true" &&
+    css`
+      @media ${devices.tablet} {
+        display: none;
+      }
+    `};
 `;
 
 function Notes() {
   const { isLoading: isLoadingNotes } = useNotes();
   const { getCurrentLocation, isLoading: isLoadingLocation } = useGeolocation();
+  const listVisible = useUiState((state) =>
+    state.isVisible(NOTES_COMPONENTS.NOTES_LIST)
+  );
+  const mapVisible = useUiState((state) =>
+    state.isVisible(NOTES_COMPONENTS.NOTES_MAP)
+  );
   useEffect(() => getCurrentLocation(), [getCurrentLocation]);
 
   if (isLoadingLocation || isLoadingNotes) {
@@ -36,8 +58,12 @@ function Notes() {
     <div>
       <NotesListMapToggle />
       <StyledNotes>
-        <NotesListView />
-        <NotesMap />
+        <StyledDiv $hide={(!listVisible).toString()}>
+          <NotesListView />
+        </StyledDiv>
+        <StyledDiv $hide={(!mapVisible).toString()}>
+          <NotesMap />
+        </StyledDiv>
       </StyledNotes>
     </div>
   );
