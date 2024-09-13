@@ -6,6 +6,7 @@ import { useNotes } from "./useNotes";
 import useGeolocation from "../../states/geolocation";
 import { useEffect } from "react";
 import NotesListMapToggle from "./NotesListMapToggle";
+import { devices } from "../../styles/breakpoints";
 
 const StyledNotes = styled.main`
   display: grid;
@@ -14,6 +15,12 @@ const StyledNotes = styled.main`
   justify-content: center;
   margin: 0 auto;
   gap: 1.2rem;
+
+  @media ${devices.tablet} {
+    display: flex;
+    gap: 0.6rem;
+    margin: 0.3rem 0.6rem;
+  }
 `;
 
 function Notes() {
